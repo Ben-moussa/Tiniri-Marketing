@@ -1,3 +1,16 @@
+<?php
+include('language.php');
+$ar_select='';
+$fr_select='';
+$language='';
+if ((isset($_GET['language']) && $_GET['language']=='ar') || !isset($_GET['language'])){
+  $ar_select='selected';
+  $language='ar';
+}else{
+  $fr_select='selected';
+  $language='fr';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,10 +18,11 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Coopérative Tiniri Marketing</title>
+  <title><?php echo $titel[$language]['0']?></title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -26,7 +40,7 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+ <link href="assets/css/style.css" rel="stylesheet"> 
 
   <!-- =======================================================
   * Template Name: Arsha - v4.6.0
@@ -36,42 +50,36 @@
   ======================================================== -->
 </head>
 
-<body>
+<body dir="<?php echo $deriction[$language]['0']?>">
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="index.html">TINIRI MARKETING</a></h1>
+      <h1 class="logo"><a href="index.html"><?php echo $top[$language]['0']?></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link   scrollto" href="#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a> -->
-            <!-- <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul> -->
+          <li><a class="nav-link scrollto active" href="#hero"><?php echo $top_nav[$language]['0']?></a></li>
+          <li><a class="nav-link scrollto" href="#about"><?php echo $top_nav[$language]['1']?></a></li>
+          <li><a class="nav-link scrollto" href="#services"><?php echo $top_nav[$language]['2']?></a></li>
+          <li><a class="nav-link   scrollto" href="#portfolio"><?php echo $top_nav[$language]['3']?></a></li>
+          <li><a class="nav-link scrollto" href="#team"><?php echo $top_nav[$language]['4']?></a></li>
           </li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+          <li><a class="nav-link scrollto" href="#contact"><?php echo $top_nav[$language]['5']?></a></li>
+          <!--Dropdown 2-->
+          <div class="dropdown nav-item mx-0 ">
+              <button class="btn globe2 rounded-pill  dropdown-toggle " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"> <i class="bi bi-globe2"></i> </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" 
+              onchange="set_language() " name="language" id="language">
+              <li class="d-flex text-end"><a href="?language=ar" class="dropdown-item text-center" ><img src="assets/img/morocco.png"></a><span class="col-8"><?php echo $dropdown[$language]['0']?></span>  </li>
+              <li class="d-flex text-end"><a href="?language=fr" class="dropdown-item text-center" ><img src="assets/img/france.png"></a> <span class="col-8"><?php echo $dropdown[$language]['1']?></span> </li>
+            </ul>
+          </div>
+          <!--fin dropdown 2-->
+            
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -85,11 +93,11 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-          <h1>  Cooperative Tiniri Marketing</h1>
-          <h2>We are a team of talented designers who make websites  <br> and the first cooperative dedicated to keeping pace with cooperatives </h2>
+          <h1><?php echo $but[$language]['0']?></h1>
+          <h2><?php echo $but[$language]['1']?><br><?php echo $but[$language]['2']?></h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="#about" class="btn-get-started scrollto">Get Started</a>
-            <a href="https://www.youtube.com/watch?v=J9w-cir5a6U" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+            <a href="#about" class="btn-get-started scrollto"><?php echo $but[$language]['3']?></a>
+            <a href="https://www.youtube.com/watch?v=J9w-cir5a6U" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span><?php echo $but[$language]['4']?></span></a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
@@ -142,19 +150,13 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>About Us</h2>
+          <h2><?php echo $about1[$language]['0']?></h2>
         </div>
 
         <div class="row content">
           <div class="col-lg-6">
             <p>
-              Teneri Marketing is the first cooperative specialized in supporting cooperatives, 
-              by providing a set of basic services necessary for the success of any project,
-              through three main axes: administrative and financial support, project management support, 
-              and electronic marketing support. The cooperative harnesses the experience and competence 
-              of its members to cooperatives wishing to develop their projects, 
-              improve their returns and reach the largest number of customers.   <br>
-              
+            <?php echo $about[$language]['0']?>   <br>
             </p>
             <!-- <ul>
               <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
@@ -164,12 +166,7 @@
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
             <p>
-              Teneri Marketing is a youth cooperative in which young people with diplomas and diplomas work.
-              Its social headquarters is located in the commune of Tekent, Guelmim region.
-                
-              It also provides reception offices in the city of Guelmim, the city of Tiznit,
-              and the city of Agadir. It provides escort services, communication,
-              advertising and marketing for the benefit of Moroccan cooperatives affiliated with the law 112.12
+            <?php echo $about[$language]['1']?>
             </p>
             <!-- <a href="#" class="btn-learn-more">Learn More</a> -->
           </div>
@@ -187,40 +184,35 @@
           <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
 
             <div class="content">
-              <h3>Eum ipsam laborum deleniti <strong>velit pariatur architecto aut nihil</strong></h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-              </p>
+              <h3> <?php echo $services1[$language]['0']?><h2><?php echo $services1[$language]['1']?></h2></h3>
+              
             </div>
 
             <div class="accordion-list">
               <ul>
                 <li>
-                  <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-1"><span>01</span> Non consectetur a erat nam at lectus urna duis? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                  <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
-                    <p>
-                      Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
-                    </p>
-                  </div>
+                  <a data-bs-toggle="collapse"  data-bs-target="#accordion-list-1" class="collapsed"><span>01</span> <?php echo $services1[$language]['2']?></a>
                 </li>
-
                 <li>
-                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span> Feugiat scelerisque varius morbi enim nunc? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                  <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
-                    <p>
-                      Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-                    </p>
-                  </div>
+                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span> <?php echo $services1[$language]['3']?></a>
                 </li>
-
                 <li>
-                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed"><span>03</span> Dolor sit amet consectetur adipiscing elit? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                  <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
-                    <p>
-                      Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
-                    </p>
-                  </div>
+                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed"><span>03</span> <?php echo $services1[$language]['4']?></a>
                 </li>
+                <li>
+                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-4" class="collapsed"><span>04</span> <?php echo $services1[$language]['5']?></a>
+                </li>
+                <li>
+                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-5" class="collapsed"><span>05</span> <?php echo $services1[$language]['6']?></a>
+                </li>
+                <li>
+                  <a data-bs-toggle="collapse"  data-bs-target="#accordion-list-6" class="collapsed"><span>06</span> <?php echo $services1[$language]['7']?></a>
+                </li>
+                <li>
+                  <a data-bs-toggle="collapse"  data-bs-target="#accordion-list-7" class="collapsed"><span>07</span> <?php echo $services1[$language]['8']?></a>
+                </li>
+                
+                
 
               </ul>
             </div>
@@ -267,7 +259,7 @@
               <div class="progress">
                 <span class="skill">JavaScript <i class="val">75%</i></span>
                 <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
               </div>
 
@@ -291,43 +283,55 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Services</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2><?php echo $Service[$language]['0']?></h2>
+          <p><?php echo $Service[$language]['1']?></p>
         </div>
 
         <div class="row">
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+          <div class="col-xl-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box">
               <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4><a href="https://www.facebook.com/tinirimarketing/">Accompanying the administration</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+              <h4><a href=""> <?php echo $Service2[$language]['0']?></a></h4>
+              <p class="fs-5"><?php echo $Service2[$language]['1']?></p></br>
+              <p class="fs-5"><?php echo $Service2[$language]['2']?></p><br>
+              <p class="fs-5"><?php echo $Service2[$language]['3']?></p><br>
+              <p class="fs-5"><?php echo $Service2[$language]['4']?></p><br>
+              <p class="fs-5"><?php echo $Service2[$language]['5']?></p><br>
+              <p class="fs-5"><?php echo $Service2[$language]['6']?></p><br>
+
             </div>
           </div>
 
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+          <div class="col-xl-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-file"></i></div>
-              <h4><a href="">visual identity design</a></h4>
-              <p>Designing a visual identity according to the requirements of the business and the client together,
-                 and because of that,
-                 Wethaq provides clients with several models of visual identity, each with its own advantages</p>
+              <h4><a href=""><?php echo $Service2[$language]['7']?></a></h4>
+              <p class="fs-5"><?php echo $Service2[$language]['8']?></p><br>
+              <p class="fs-5"><?php echo $Service2[$language]['9']?></p><br>
+              <p class="fs-5"><?php echo $Service2[$language]['10']?></p><br>
+              <p class="fs-5"><?php echo $Service2[$language]['11']?></p><br>
             </div>
           </div>
 
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
+          <div class="col-xl-4 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
             <div class="icon-box">
-              <div class="icon"><i class="bx bx-tachometer"></i></div>
-              <h4><a href="">Magni Dolores</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+              <div class="icon"><i class="bx bx-"></i></div>
+              <h4><a href=""><?php echo $Service2[$language]['12']?></a></h4>
+              <p  class="fs-5"><?php echo $Service2[$language]['13']?></p> <br>
+              <p  class="fs-5"><?php echo $Service2[$language]['14']?></p><br>
+              <p  class="fs-5"><?php echo $Service2[$language]['15']?></p><br>
+              <p  class="fs-5"><?php echo $Service2[$language]['16']?></p><br>
+              <p  class="fs-5"><?php echo $Service2[$language]['17']?></p><br>
+              <p  class="fs-5"><?php echo $Service2[$language]['18']?></p><br>
             </div>
           </div>
 
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
+          <!-- <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-layer"></i></div>
               <h4><a href="">Nemo Enim</a></h4>
               <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-            </div>
+            </div> -->
           </div>
 
         </div>
@@ -470,8 +474,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Team</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>Our hardworking team</h2>
         </div>
 
         <div class="row">
@@ -554,30 +557,23 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Pricing</h2>
-          <p>As part of their societal mission, the TINIRI Marketing and MIRACOOPS cooperatives present the
-             “MIRTIN PACKS” offers which constitute a joint initiative of the two players, intended especially 
-             for cooperatives and represented by a multitude of quality management services, structuring support 
-             and support for the development of cooperatives throughout the national territory, through strong 
-             conviction and experiential demonstrations MIRTIN represents an alternative for solid support and having an
-           effective impact on the performance indicators of cooperatives, 
-            a multi-range subscription characterized by professionalization of the cooperative profession.</p>
+          <h2><?php echo $PRICING[$language]['0']?></h2>
+          <p> <?php echo $PRICING[$language]['1']?></p>
         </div>
 
         <div class="row">
 
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="box">
-              <h1>Base</h1>
-              <h4><sup>$</sup>3500.00<span>per year</span></h4>
-              <ul>
-                <li><i class="bx bx-check"></i>Processing of cooperative documents</li>
-                <li><i class="bx bx-check"></i>Creation of visual identity of the cooperative 
-                (logo, graphic design, photography) Animation and moderation of</li>
-                <li><i class="bx bx-check"></i> social networks</li>
-                <li class=""><i class="bx bx-check"></i> <span>Registration for E-commerce platforms</span></li>
-                <li class=""><i class="bx bx-check"></i> <span>Basic training and consultations</span></li>
-                <li class=""><i class="bx bx-check"></i> <span>Comptabilité</span></li>
+              <h1><?php echo $PRICING[$language]['2']?></h1>
+              <h4><sup>DH</sup>3500.00<span><?php echo $PRICING[$language]['3']?></span></h4>
+              <ul >
+                <li><?php echo $PRICING[$language]['4']?></li>
+                <li><i class="bx bx-check"></i><?php echo $PRICING[$language]['5']?></li>
+                <li><i class="bx bx-check"></i><?php echo $PRICING[$language]['6']?></li>
+                <li><i class="bx bx-check"></i> <span><?php echo $PRICING[$language]['7']?></span></li>
+                <li><i class="bx bx-check"></i> <span><?php echo $PRICING[$language]['8']?></span></li>
+                <li><i class="bx bx-check"></i> <span><?php echo $PRICING[$language]['9']?></span></li>
 
               </ul>
               <!-- <a href="#" class="buy-btn">Get Started</a> -->
@@ -586,18 +582,18 @@
 
           <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
             <div class="box featured">
-              <h1>Standard</h1>
-              <h4><sup>$</sup>6500.00<span>per year</span></h4>
+              <h1><?php echo $PRICING[$language]['10']?></h1>
+              <h4><sup>DH</sup>6500.00<span><?php echo $PRICING[$language]['3']?></span></h4>
               <ul>
-                <li><i class="bx bx-check"></i> base pack</li>
-                <li><i class="bx bx-check"></i> 1000 business cards</li>
-                <li><i class="bx bx-check"></i> 500 labels</li>
-                <li><i class="bx bx-check"></i> 1 market study</li>
-                <li><i class="bx bx-check"></i> 10% reduction on packaging</li>
-                <li><i class="bx bx-check"></i> Reduction 15% sur site E-commerce <br>
-                  inscription aux forums et exposi tions nationnaux <br>
-                  2 Formations en profondeur <br>
-                  points de vente partout le maroc</li>
+                <li><i class="bx bx-check"></i><?php echo $PRICING[$language]['11']?>
+                <li><i class="bx bx-check"></i> <?php echo $PRICING[$language]['12']?></li>
+                <li><i class="bx bx-check"></i><?php echo $PRICING[$language]['13']?></li>
+                <li><i class="bx bx-check"></i> <?php echo $PRICING[$language]['14']?></li>
+                <li><i class="bx bx-check"></i> <?php echo $PRICING[$language]['15']?></li>
+                <li><i class="bx bx-check"></i><?php echo $PRICING[$language]['16']?> <br>
+                <?php echo $PRICING[$language]['17']?><br>
+                <?php echo $PRICING[$language]['18']?><br>
+                <?php echo $PRICING[$language]['19']?></li>
 
               </ul>
               <!-- <a href="#" class="buy-btn">Get Started</a> -->
@@ -606,17 +602,16 @@
 
           <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
             <div class="box">
-              <h1>Prémium</h1>
-              <h4><sup>$</sup>12000.00<span>per year</span></h4>
+              <h1> <?php echo $PRICING[$language]['20']?></h1>
+              <h4><sup>DH</sup>12000.00<span><?php echo $PRICING[$language]['3']?></span></h4>
               <ul>
-                <li><i class="bx bx-check"></i> Standard Pack</li>
-                <li><i class="bx bx-check"></i> 20% reduction on E-commerce site 25% reduction on packaging Registration for international E-commerce sites</li>
-                <li><i class="bx bx-check"></i> 4 In-depth training</li>
-                <li><i class="bx bx-check"></i> Smartphone + subscription</li>
-                <li><i class="bx bx-check"></i> Registration for forumes and exhibitions</li>
-                <li><i class="bx bx-check"></i> international <br>
-                  international points of sale
-                  and national supermarkets</li>
+                <li><i class="bx bx-check"></i><?php echo $PRICING[$language]['21']?></li>
+                <li><i class="bx bx-check"></i><?php echo $PRICING[$language]['22']?></li>
+                <li><i class="bx bx-check"></i><?php echo $PRICING[$language]['23']?></li>
+                <li><i class="bx bx-check"></i><?php echo $PRICING[$language]['24']?></li>
+                <li><i class="bx bx-check"></i> <?php echo $PRICING[$language]['25']?></li>
+                <li><i class="bx bx-check"></i> <?php echo $PRICING[$language]['26']?> <br>
+                <?php echo $PRICING[$language]['27']?></li>
 
               </ul>
               <!-- <a href="#" class="buy-btn">Get Started</a> -->
@@ -633,73 +628,53 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Frequently Asked Questions</h2>
-          <p>Uestions And Answers In The Law Of Cooperatives.</p>
+          <h2><?php echo $QUESTIONS[$language]['0']?></h2>
+          <p><?php echo $QUESTIONS[$language]['1']?></p>
         </div>
 
         <div class="faq-list">
           <ul>
             <li data-aos="fade-up" data-aos-delay="100">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">1 What are the laws regulating the cooperative sector in Morocco? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1"><?php echo $QUESTIONS[$language]['2']?> <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
                 <p>
-                    Cooperatives are subject to Law No. 112.12 related to cooperatives,
-                    as it has been changed, Law No. 16.74 to change Law No. 112.12 relating to cooperatives,
-                    as well as to the provisions of Decree No. 2.15.617 issued on (March 24, 2016) 
-                    defining the rules for organizing and managing the cooperative registry, and Ministerial Decree No. 
-                    1369.16 issued on May 9, 2016 Determining the form and content of the local register of cooperatives,
-                    forms of registration application forms, amended and finalized registration, 
-                    as well as a sample of a certificate and an extract from the aforementioned register
+                <?php echo $QUESTIONS[$language]['3']?>
                 </p>
               </div>
             </li>
 
             <li data-aos="fade-up" data-aos-delay="200">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">2 What is the concept of cooperative? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed"> <?php echo $QUESTIONS[$language]['4']?> <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
                 <p>
-                  An independent contract established between personal and/or legal persons,
-                  or both of them, who have voluntarily agreed to market their products or services
-                  collectively, or to obtain services or employment by harnessing their material and technical capabilities,
-                  and it is run in accordance with the law and cooperative principles.
+                <?php echo $QUESTIONS[$language]['5']?>
                 </p>
               </div>
             </li>
 
             <li data-aos="fade-up" data-aos-delay="300">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">3 What are the cooperative principles?<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed"> <?php echo $QUESTIONS[$language]['6']?><i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
                 <p>
-                  Cooperative principles are seven global principles that have been adopted by Law No. 112.12 and it is related to:
-                      1) Freedom to engage (open door), <br />
-                      2) democratic management,<br />
-                      3) autonomy,<br />
-                      4) the economic contribution of the members,<br />
-                      5) formation and training,<br />
-                      6) cooperation between cooperatives,<br />
-                      7) Commitment to society<br />
+                <?php echo $QUESTIONS[$language]['7']?>
                 </p>
               </div>
             </li>
 
             <li data-aos="fade-up" data-aos-delay="400">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4" class="collapsed">What are the rights of the collaborator? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4" class="collapsed"><?php echo $QUESTIONS[$language]['8']?> <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
                 <p>
-                  Acquiring the status of a collaborator enjoys the following rights: 
-                  withdrawal, assignment of shares to others, access to documents and records,
-                  nomination for membership in the board of directors, the manager or the control committee,
-                  attendance at various cooperative meetings,
-                  expressing an opinion, voting, requesting information
+                <?php echo $QUESTIONS[$language]['9']?>
                 </p>
               </div>
             </li>
 
             <li data-aos="fade-up" data-aos-delay="500">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">How many copies of documents are required to register a cooperative in the local registry of cooperatives? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed"><?php echo $QUESTIONS[$language]['10']?><i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
                 <p>
-                  The number of copies of documents required to register a cooperative in the local registry of cooperatives is three
+                <?php echo $QUESTIONS[$language]['11']?>
                 </p>
               </div>
             </li>
@@ -715,8 +690,8 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Contact</h2>
-          <p>Send us your messages and we will get back to you as soon as possible</p>
+          <h2> <?php echo $contact[$language]['0']?></h2>
+          <p><?php echo $contact[$language]['1']?></p>
         </div>
 
         <div class="row">
@@ -725,19 +700,19 @@
             <div class="info">
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
+                <h4><?php echo $contact2[$language]['0']?></h4>
                 <p>A108 Adam Street, New York, NY 535022</p>
               </div>
 
               <div class="email">
                 <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
+                <h4><?php echo $contact2[$language]['1']?></h4>
                 <p>tinirimarketing@gmail.com   </p>
               </div>
 
               <div class="phone">
                 <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
+                <h4><?php echo $contact2[$language]['2']?></h4>
                 <p>+212 694675256</p>
               </div>
 
@@ -750,28 +725,68 @@
             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
               <div class="row">
                 <div class="form-group col-md-6">
-                  <label for="name">Your Name</label>
-                  <input type="text" name="name" class="form-control" id="name" required>
+                <input
+                  class="form-control"
+                  id="name"
+                  type="text"
+                  placeholder="Enter your name..."
+                  data-sb-validations="required"
+                />
+                <label for="name"><?php echo $contact[$language]['2']?></label>
+                <div class="invalid-feedback" data-sb-feedback="name:required">
+                  <?php echo $contact[$language]['3']?>
+                </div>
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="name">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email" required>
+                <input
+                  class="form-control"
+                  id="email"
+                  type="email"
+                  placeholder="name@example.com"
+                  data-sb-validations="required,email"
+                />
+                <label for="email"><?php echo $contact[$language]['4']?></label>
+                <div class="invalid-feedback" data-sb-feedback="email:required">
+                  <?php echo $contact[$language]['5']?>
+                </div>
+                <div class="invalid-feedback" data-sb-feedback="email:email">
+                  <?php echo $contact[$language]['6']?>
+                </div>
                 </div>
               </div>
               <div class="form-group">
-                <label for="name">Subject</label>
-                <input type="text" class="form-control" name="subject" id="subject" required>
+              <input
+                  class="form-control"
+                  id="phone"
+                  type="tel"
+                  placeholder="(123) 456-7890"
+                  data-sb-validations="required"
+                />
+                <label for="phone"><?php echo $contact[$language]['7']?></label>
+                <div class="invalid-feedback" data-sb-feedback="phone:required">
+                  <?php echo $contact[$language]['8']?>
+                </div>
               </div>
               <div class="form-group">
-                <label for="name">Message</label>
-                <textarea class="form-control" name="message" rows="10" required></textarea>
+              <textarea
+                  class="form-control"
+                  id="body"
+                  type="text"
+                  placeholder="Enter your message here..."
+                  style="height: 10rem"
+                  data-sb-validations="required"
+                ></textarea>
+                <label for="body"><?php echo $contact[$language]['9']?></label>
+                <div class="invalid-feedback" data-sb-feedback="body:required">
+                  <?php echo $contact[$language]['10']?>
+                </div>
               </div>
               <div class="my-3">
-                <div class="loading">Loading</div>
+                <div class="loading"><?php echo $contact[$language]['11']?></div>
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center"><button type="submit"><?php echo $contact[$language]['12']?></button></div>
             </form>
           </div>
 
@@ -877,7 +892,52 @@
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+      function sendEmail() {
+        var name = $("#name");
+        var email = $("#email");
+        var phone = $("#phone");
+        var body = $("#body");
+
+        if (
+          isNotEmpty(name) &&
+          isNotEmpty(email) &&
+          isNotEmpty(phone) &&
+          isNotEmpty(body)
+        ) {
+          $.ajax({
+            url: "sendEmail.php",
+            method: "POST",
+            dataType: "json",
+            data: {
+              name: name.val(),
+              email: email.val(),
+              phone: phone.val(),
+              body: body.val(),
+            },
+            success: function (response) {
+              $("#contactForm")[0].reset();
+              $(".sent-notification").text("envoyer");
+            },
+          });
+        }
+      }
+
+      function isNotEmpty(caller) {
+        if (caller.val() == "") {
+          caller.css("border", "1px solid red");
+          return false;
+        } else caller.css("border", "");
+
+        return true;
+      }
+      function set_language() {
+        var language=jQuery('#language').val();
+        window.location.href='https://assosiation-hkoutwa.herokuapp.com/?language='+language;
+      }
+    </script>
+      <script src="assets/js/main.js"></script>
 
 </body>
 
